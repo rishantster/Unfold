@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Unfold — One link. You're connected.",
-  description: "Create your personal networking profile in a minute.",
+  description: "Create your personal networking profile in a minute. No password required.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

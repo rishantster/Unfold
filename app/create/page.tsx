@@ -14,7 +14,7 @@ export default function CreatePage() {
   useEffect(()=>{ const supabase=createClient(); if(!supabase){router.replace("/");return} supabase.auth.getUser().then(async ({data})=>{
     if(!data.user){router.replace("/");return} setUserId(data.user.id);
     const {data:profile}=await supabase.from("profiles").select("name,handle,headline,bio,whatsapp,portfolio,avatar_url").eq("id",data.user.id).maybeSingle();
-    if(profile) setForm(profile as Form); else setForm(v=>({...v,name:data.user?.user_metadata.full_name||"",avatar_url:data.user?.user_metadata.avatar_url||""}));
+    if(profile) setForm(profile as Form);
   }); },[router]);
   const set=(key:keyof Form,value:string)=>setForm(v=>({...v,[key]:value}));
   async function submit(e:FormEvent){ e.preventDefault(); setMessage(""); if(!userId)return;
@@ -31,7 +31,7 @@ export default function CreatePage() {
       <div className="field"><label>What you do *</label><input required value={form.headline} onChange={e=>set("headline",e.target.value)} placeholder="Designer, founder, photographer…"/></div>
       <div className="field"><label>A short hello</label><textarea maxLength={180} value={form.bio} onChange={e=>set("bio",e.target.value)} placeholder="A sentence or two is plenty."/></div>
       <div className="row"><div className="field"><label>WhatsApp number</label><input value={form.whatsapp} onChange={e=>set("whatsapp",e.target.value)} placeholder="Include country code"/></div><div className="field"><label>Website or portfolio</label><input type="url" value={form.portfolio} onChange={e=>set("portfolio",e.target.value)} placeholder="https://"/></div></div>
-      <div className="field"><label>Photo URL</label><input type="url" value={form.avatar_url} onChange={e=>set("avatar_url",e.target.value)} placeholder="https:// (your Google photo is added automatically)"/></div>
+      <div className="field"><label>Photo URL</label><input type="url" value={form.avatar_url} onChange={e=>set("avatar_url",e.target.value)} placeholder="https://your-photo.jpg"/></div>
       {message&&<div className="error">{message}</div>}<button className="primary-btn" disabled={saving}>{saving?"Publishing…":"Publish my page →"}</button>
     </form>
   </section><aside className="preview-side"><div className="preview-label">Live preview</div><ProfilePreview form={form}/></aside></main>;

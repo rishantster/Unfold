@@ -1,7 +1,7 @@
 "use client";
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { Check, Copy, Pencil } from "lucide-react";
+import { Copy, Pencil } from "lucide-react";
 import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
 import { Brand } from "@/components/brand";

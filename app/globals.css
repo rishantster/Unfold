@@ -22,9 +22,16 @@ h1 { max-width:780px; font-size:clamp(58px,7.2vw,116px); letter-spacing:-.075em;
 .login-card { width:100%; max-width:410px; }
 .login-card h2 { font-size:34px; letter-spacing:-1.6px; margin:0 0 12px; }
 .login-card p { color:var(--muted); line-height:1.5; margin:0 0 30px; }
-.google-btn,.primary-btn { width:100%; min-height:56px; border:1px solid var(--ink); border-radius:3px; background:var(--ink); color:white; display:flex; align-items:center; justify-content:center; gap:12px; cursor:pointer; font-weight:700; transition:.15s; }
-.google-btn:hover,.primary-btn:hover { transform:translateY(-2px); box-shadow:4px 4px 0 var(--lime); }
-.google-icon { width:22px; height:22px; background:white; color:#4285f4; border-radius:50%; display:grid; place-items:center; font-weight:800; font-family:serif; }
+.primary-btn { width:100%; min-height:56px; border:1px solid var(--ink); border-radius:3px; background:var(--ink); color:white; display:flex; align-items:center; justify-content:center; gap:12px; cursor:pointer; font-weight:700; transition:.15s; }
+.primary-btn:hover { transform:translateY(-2px); box-shadow:4px 4px 0 var(--lime); }
+.primary-btn:disabled { cursor:not-allowed; opacity:.55; transform:none; box-shadow:none; }
+.login-form label { display:block; font-size:12px; font-weight:700; margin-bottom:8px; }
+.email-input { display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--line); padding:0 14px; margin-bottom:12px; }
+.email-input:focus-within { border-color:var(--ink); box-shadow:0 0 0 2px var(--lime); }
+.email-input input { width:100%; min-height:54px; border:0; outline:0; background:transparent; }
+.email-sent { text-align:center; padding:26px 0; }
+.email-sent svg { color:#668b00; }
+.email-sent strong { color:var(--ink); }
 .login-fine { font-size:11px; color:#99978f; margin-top:18px; text-align:center; }
 .setup-note { border:1px solid #d5c56b; background:#fff8d2; padding:12px; font-size:12px; line-height:1.5; margin-bottom:16px; }
 .editor { min-height:100vh; display:grid; grid-template-columns:minmax(360px, 590px) 1fr; }
